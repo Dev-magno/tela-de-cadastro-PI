@@ -3,65 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tela de cadastro</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
-        <section>
-            <h1>Cadastro</h1>
+        <section class="section-cadastro">
+
             <div class="div-form">
+                <h1>Cadastro</h1>
+                
                 <form action="">
                     <div class="dados-pessoais">
-                        <div>
+                        <div class="div-itens">
                             <label for="">Nome Completo</label>
                             <input type="text" name="nome" id="none" placeholder="seu nome" required>
                         </div>
 
-                        <div>
+                        <div class="div-itens">
                             <label for="">Data de Nascimento</label>
                             <input type="date" name="data" id="data" placeholder="sua data de Nascimento" required>
                         </div>
 
-                        <div>
+                        <div class="div-itens">
                             <label for="">CPF</label>
-                            <input type="text" name="cpf" id="cpf" placeholder="seu cpf" required maxlength="11"> <span>somente números</span>
+                            <input type="text" name="cpf" id="cpf" placeholder="seu cpf" required maxlength="11"> <span id="span-cadastro">somente números</span>
                         </div>
 
-                        <div>
+                        <div class="div-itens">
                             <label for="">Endereço de E-mail</label>
                             <input type="email" name="email" id="email" placeholder="seu email" required>
                         </div>
 
-                        <div>
+                        <div class="div-itens">
                             <label for="">Nome de Usuário</label>
                             <input type="text" name="usuario" id="usuario" placeholder="seu nome de usuário" required>
                         </div>
 
-                        <div>
+                        <div class="div-itens">
                             <label for="">Telefone</label>
-                            <input type="tel" name="tel" id="tel" placeholder="seu telefone" required maxlength="11"><span>somente números</span>
+                            <input type="tel" name="tel" id="tel" placeholder="seu telefone" required maxlength="11"><span id="span-cadastro">somente números</span>
                         </div>
 
                     </div>
 
                     <div class="dados-pessoais">
-                        <div>
+                        <div class="div-itens">
                             <label for="">Senha</label>
                             <input type="password" name="senha" id="senha" placeholder="sua senha" required minlength="8" maxlength="15">
                         </div>
 
-                        <div>
+                        <div class="div-itens">
                             <label for="">Digite novamente a senha</label>
                             <input type="password" name="senha" id="senha" placeholder="sua senha" required minlength="8" maxlength="15"> 
                         </div>
                     </div>
-
-                    <div>
-                        <button>Cadastrar</button>
-                        <a href="">Já tenho cadastro</a>
-                    </div>
                 </form>
 
+                <button id="btn-cadastrar">Cadastrar</button>
+
+                <div id="cadastro-link">
+                    <a href="">Já tenho cadastro</a>
+                </div>
             </div>
         </section>
     </main>
