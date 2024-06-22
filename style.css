@@ -21,6 +21,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
+    color: var(--branco);
 }
 
 body {
@@ -42,23 +43,76 @@ body {
    
 }
 
-
 .div-form{
-    background-color: var(--branco);
+    background-color: var(--cor-secundaria);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid var(--cor-tres);
-    width: 760px;
-    height: 480px;
+    border: 1px solid var(--corquatro);
     border-radius: 4px;
+    padding: 1rem;
+    opacity: 0.6;
+}
+
+.dados-pessoais {
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.div-itens {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.7rem; 
+}
+
+.div-itens label {
+    font-size: 1.1rem;
+    color: var(--branco);
+}
+
+.div-itens input {
+    border: 0.1px solid var(--cor-primaria);
+    width: 14rem;
+    height: 2rem;
+    margin-top: 0.2rem;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.div-itens input::placeholder {
+    color: var(--preto);
 }
 
 
-.dados-pessoais {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
+#span-cadastro {
+    font-size: 0.7rem;
+}
+
+#btn-cadastrar {
+    border: none;
+    background-color: var(--cor-secundaria);
+    padding: 10px;
+    width: 15%;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#btn-cadastrar:hover{
+    background-color: var(--cor-primaria);
+
+    color: var(--preto);
+}
+
+#cadastro-link a {
+    text-decoration: none;
+    color: var(--branco);
+    font-size: 1.1rem;
 }
