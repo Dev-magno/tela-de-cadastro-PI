@@ -139,8 +139,8 @@ body {
     .section-cadastro{
         height: auto;
     }
+
     .div-form {
-        display: flex;
         flex-direction: column;
         border: 1px solid var(--corquatro);
         border-radius: 4px;
@@ -164,13 +164,18 @@ body {
     .div-itens {
         display: flex;
         flex-direction: column;
-        padding: 0.5rem; 
+        /* padding: 0.4rem;  */
+    }
+
+    .div-itens label {
+        font-size: 1.2rem;
     }
 
     .div-itens input {
         border: 0.1px solid var(--cor-primaria);
-        width: 18rem;
+        width: 19rem;
         border-radius: 5px;
+        margin: 0;
     }
 
     #btn-cadastrar {
