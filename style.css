@@ -51,33 +51,28 @@ body {
     flex-direction: column;
     border: 1px solid var(--corquatro);
     border-radius: 4px;
-    padding: 1rem;
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 .div-form h1 {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .form-cadastro {
-    display: inline-flex;;
-    flex-direction: column;
-    flex-wrap: wrap;
-   
+    display: flex;;
+    flex-direction: column;  
 }
 
 .dados-pessoais {
     display: inline-flex;
     align-items: flex-start;
-    flex-direction: row;
-    gap: 14px;
 }
 
 .div-itens {
     display: flex;
     flex-direction: column;
-    padding: 0.7rem; 
+    padding: 0.6rem; 
 }
 
 .div-itens label {
@@ -87,9 +82,9 @@ body {
 
 .div-itens input {
     border: 0.1px solid var(--cor-primaria);
-    width: 18rem;
-    height: 2rem;
-    margin: 0.2rem 1.4rem 0 0;
+    width: 14rem;
+    height: 1.9rem;
+    margin: 0.2rem 0.1rem 0 0;
     padding: 5px;
     border-radius: 5px;
 }
@@ -123,8 +118,10 @@ body {
 }
 
 #cadastro-link a {
+    display: flex;
     color: var(--branco);
     font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -146,6 +143,7 @@ body {
         border-radius: 4px;
         opacity: 0.7;
         padding: 0px;
+        margin: 2rem 0 2rem 0;
     }
 
     .div-form h1 {
