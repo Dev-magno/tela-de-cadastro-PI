@@ -128,7 +128,7 @@ body {
 
     body{
         background-image: url('img/livros-abaiju.jpg');
-        background-repeat: no-repeat;
+        background-repeat:space;
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
