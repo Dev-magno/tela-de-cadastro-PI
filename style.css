@@ -188,3 +188,17 @@ body {
         font-weight: bold;
     }
 }
+
+@media only screen and (min-width: 768px) {
+
+    body {
+        background-image: url('img/book.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .div-form {
+        justify-content: center;
+        align-items: center;
+    }
+}
