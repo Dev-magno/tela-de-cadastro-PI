@@ -128,9 +128,11 @@ body {
 
     body{
         background-image: url('img/livros-abaiju.jpg');
-        background-repeat: unset;
+        background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        background-attachment: fixed;
+
     }
 
     .section-cadastro{
