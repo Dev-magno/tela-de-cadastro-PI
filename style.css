@@ -141,7 +141,7 @@ body {
 
     .div-form {
         flex-direction: column;
-        background-color: var(--cor-primaria);
+        background-color: var(--preto);
         border: 1px solid var(--corquatro);
         border-radius: 4px;
         opacity: 0.7;
@@ -149,16 +149,10 @@ body {
         margin: 2rem 0 2rem 0;
     }
 
-    .div-form label {
-        color: var(--preto);
-    }
-
     .div-form h1 {
-        font-size: 1.4rem;
-        margin: 0px;
-        color: var(--preto);
-
+        margin: 1rem 0 1rem 0rem;
     }
+   
     .dados-pessoais {
         display: flex;
         flex-direction: column;
@@ -191,14 +185,11 @@ body {
         width: 7rem;
         font-size: 1.2rem;
         border-radius: 5px;
-        margin-bottom: 10px;
+        margin: 0.5rem 0 0.5rem 0rem;
         cursor: pointer;
         font-weight: bold;
     }
 
-    #cadastro-link a, #span-cadastro {
-        color: var(--preto);
-    }
 }
 
 @media only screen and (min-width: 600px) and (max-width:900px){
@@ -215,9 +206,13 @@ body {
         align-items: center;
     }
 
+    .div-form h1 {
+            margin: 1rem 0px 2rem 0;
+    }
+
     .div-itens input {
         border: 0.1px solid var(--cor-primaria);
-        width: 14.5rem;
+        width: 13.9rem;
         height: 2.6rem;
         border-radius: 5px;
         margin: 2px 1px 1px 0;
