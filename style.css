@@ -193,7 +193,7 @@ body {
 
 }
 
-@media only screen and (min-width: 600px) and (max-width:900px){
+@media only screen and (min-width: 600px) and (max-width:1200px){
 
     body {
         background-image: url('img/tablet.jpg');
@@ -228,31 +228,5 @@ body {
 
     #btn-cadastrar {
             margin: 10px 0px 12px 0px;
-    }
-}
-
-@media only screen and (min-width: 900px) and (max-width: 1300px){
-    body {
-        background-image: url('img/biblioteca.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-    
-    .div-form {
-        flex-direction: column;
-        border: 1px solid var(--corquatro);
-        border-radius: 4px;
-        opacity: 0.7;
-        padding: 0px;
-    }
-
-    .div-form h1 {
-        margin: 1rem 0px 2rem 0;
-    }
-
-    .div-itens {
-        display: flex;
-        flex-direction: column;
-        padding: 1rem; 
     }
 }
