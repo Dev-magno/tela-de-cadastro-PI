@@ -1,75 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de cadastro</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main>
         <section class="section-cadastro">
             <div class="div-form">
                 <h1>Cadastro</h1>
-                
+
                 <form action="">
                     <div class="form-cadastro">
                         <div class="dados-pessoais">
                             <div class="div-itens">
                                 <label for="">Nome</label>
-                                <input type="text" name="nome" id="none" placeholder="seu nome" required aria-required="true">
+                                <input type="text" name="nome" id="none" placeholder="seu nome" required
+                                    aria-required="true" value="">
                             </div>
 
                             <div class="div-itens">
                                 <label for="">Sobrenone</label>
-                                <input type="email" name="email" id="email" placeholder="seu sobrenone" required aria-required="true">
+                                <input type="email" name="email" id="email" placeholder="seu sobrenone" required
+                                    aria-required="true">
                             </div>
 
                             <div class="div-itens">
                                 <label for="">Data de Nascimento</label>
-                                <input type="date" name="data" id="data" placeholder="sua data de Nascimento" required aria-required="true">
+                                <input type="date" name="data" id="data" placeholder="sua data de Nascimento" required
+                                    aria-required="true">
                             </div>
 
                         </div>
 
                         <div class="dados-pessoais">
-                        
+
                             <div class="div-itens">
                                 <label for="">Nome de Usuário</label>
-                                <input type="text" name="usuario" id="usuario" placeholder="seu nome de usuário" required aria-required="true">
+                                <input type="text" name="usuario" id="usuario" placeholder="seu nome de usuário"
+                                    required aria-required="true">
                             </div>
 
                             <div class="div-itens">
                                 <label for="">Telefone</label>
-                                <input type="tel" name="tel" id="tel" placeholder="seu telefone" required maxlength="11" aria-required="true"><span id="span-cadastro"><i>somente números</i></span>
+                                <input type="tel" name="tel" id="tel" placeholder="seu telefone" required maxlength="11"
+                                    aria-required="true"><span id="span-cadastro"><i>somente números</i></span>
                             </div>
 
                             <div class="div-itens">
                                 <label for="">CPF</label>
-                                <input type="text" name="cpf" id="cpf" placeholder="seu cpf" required maxlength="11" aria-required="true"> <span id="span-cadastro"><i>somente números</i></span>
+                                <input type="text" name="cpf" id="cpf" placeholder="seu cpf" required maxlength="11"
+                                    aria-required="true"> <span id="span-cadastro"><i>somente números</i></span>
                             </div>
                         </div>
 
                         <div class="dados-pessoais">
                             <div class="div-itens">
                                 <label for="">Endereço de E-mail</label>
-                                <input type="email" name="email" id="email" placeholder="seu email" required aria-required="true">
+                                <input type="email" name="email" id="email" placeholder="seu email" required
+                                    aria-required="true">
                             </div>
-                            
+
                             <div class="div-itens">
                                 <label for="">Senha</label>
-                                <input type="password" name="senha" id="senha" placeholder="sua senha" required minlength="8" maxlength="15" aria-required="true">
+                                <input type="password" name="senha" id="senha" placeholder="sua senha" required
+                                    minlength="8" maxlength="15" aria-required="true">
                             </div>
 
                             <div class="div-itens">
                                 <label for="">Digite novamente a senha</label>
-                                <input type="password" name="senha" id="senha" placeholder="sua senha" required minlength="8" maxlength="15" aria-required="true"> 
+                                <input type="password" name="senha" id="senha" placeholder="sua senha" required
+                                    minlength="8" maxlength="15" aria-required="true">
                             </div>
                         </div>
+                        <button type="submit" id="btn-cadastrar">Cadastrar</button>
                     </div>
-                </form>
 
-                <button id="btn-cadastrar">Cadastrar</button>
+                </form>
 
                 <div id="cadastro-link">
                     <a href="">Já tenho cadastro</a>
@@ -77,6 +88,7 @@
             </div>
         </section>
     </main>
-    
+
 </body>
+
 </html>
