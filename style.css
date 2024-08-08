@@ -1,0 +1,707 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --cor-primaria: #B5C18E;
+    --cor-secundaria: #F1F1F1;
+    --cor-tres: #EADBC8;
+    --cor-quatro: #C7B7A3;
+    --cor-cinco: #F1F1F1;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.main-cadastro {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-cadastro h2 {
+    margin-bottom: 10px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 7px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+    padding-left: 10px; 
+}
+
+.show-password-button {
+    position: absolute;
+    left: 63.3%;
+    top: 68.3%;
+    transform: translateY(-30%);
+    height: 20px;
+    width: 20px;
+    /* display: none; */
+    cursor: pointer;
+  }
+  
+input[type="number"],
+input[type="date"],
+input[type="email"],
+input[type="text"] {
+    width: 100%;
+    padding: 7px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #B5C18E; /* Cor especificada para o botão adicionar */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #A0A97C; /* Cor mais escura para o botão adicionar ao passar o mouse */
+}
+
+textarea {
+    width: 100%; /* Ajusta a largura para 100% do contêiner */
+    height: 80px; /* Ajusta a altura conforme necessário */
+}
+
+.index {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.index h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#adicionar a,
+#listar a {
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#adicionar a:hover,
+#listar a:hover {
+    background-color: #0056b3;
+}
+
+.main-table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10%;
+}
+
+.main-table h2 {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    width: 90px; /* Defina a largura fixa das colunas */
+    height: 40px; /* Defina a altura fixa das células */
+}
+
+.table-voltar {
+    margin-top: 10px;
+    background-color: var(--cor-cinco);
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.actions {
+    width: 110px;
+}
+
+.actions a {
+    text-decoration: none;
+    padding: 2px 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#editar {
+    background-color: #C7B7A3; 
+    margin-right: 10px;
+    color: white;
+    border: none;
+}
+
+#editar:hover {
+    background-color: var(--cor-quatro); 
+}
+
+#excluir {
+    background-color: #FF0000; 
+    color: white;
+    border: none;
+}
+
+#excluir:hover {
+    background-color: #CC0000;
+}
+
+.voltar {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.voltar a {
+    text-decoration: none;
+    background-color: #19324e;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.voltar a:hover {
+    background-color: #102438; /* Cor mais escura para o botão voltar ao passar o mouse */
+}
+
+
+
+.main-user {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    position: absolute;
+    top: 30%;
+    left: 30% ;
+    transform: translate(-30%, -30%);
+    
+}
+
+.user-itens {
+    background-color: var(--cor-secundaria);
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-itens h1{
+    color: var(--preto);
+    margin: 10px 0 0 10px;
+}
+
+.svg {
+    margin: 10px 10px 0px 0px;
+}
+
+.user {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 5px;
+}
+
+aside {
+    margin: 0px 60px 0px 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+.user-livros {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-right: 10px;
+}
+
+.user-livros img {
+    width: 100px;
+    margin: 5px;
+}
+
+.dashboard-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 36%;
+    margin: 10%;
+    background-color: var(--cor-cinco);
+    border-radius: 8px;
+    box-shadow: 9px 14px 28px 6px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.div-admin {
+    background-color: var(--cor-primaria);
+    width: 100%;
+    color: var(--branco);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* .welcome-message {
+    font-family: 'Poppins';
+    font-weight: 400;
+    margin: 15px 10px;
+} */
+
+.panel-board {
+    display: flex;
+}
+
+ .panel {
+    flex: 1;
+    min-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 2%;
+    color: var(--preto);
+    text-align: center;
+}
+
+.panel h2 {
+    margin-top: 0;
+    color: var(--preto);
+    font-family: 'Poppins';
+    font-size: 20px;
+}
+
+.panel a {
+    display: block;
+    color: var(--branco);
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--cor-cinco);
+    margin-top: 10px;
+    font-family: 'Poppins';
+}
+
+.panel a:hover {
+    background-color: var(--cor-tres);
+}
+
+
+.span-cadastro {
+    font-size: 0.7rem;
+    color: var(--preto);
+    margin-left: 4px;
+}
+
+.card-detalhes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    border: 2px solid var(--cor-primaria);
+ 
+}
+
+ .form-box {
+    display: flex;
+    margin-bottom: 1rem;
+    height: 490px;
+    background-color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+}
+
+.form-detalhes {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 466px;
+    width: 329.86px; 
+    background: url("./img/svg_content.svg"); 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;   
+}
+
+.form-detalhes h2 p {
+    margin-bottom: 1rem;
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-form {
+    width: 100%;
+    padding: 35px;
+}
+.container {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+ .container input {
+    width: 100%;
+    height: 80%;
+    outline: none;
+    padding: 0 15px;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    border: 1px solid var(--cor-quatro);
+}
+
+.container input label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+}
+
+.form-detalhes .card-form  {
+    margin-bottom: 20px
+}
+
+.nav-login a {
+    text-decoration: none;
+    color: black;
+    
+}
+
+ .nav-login a:hover {
+    color: var(--cor-tres);
+
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn button {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 0;
+    border-radius: 3px;
+    margin-top: 3rem;
+    color: black;
+    cursor: pointer;
+    background: var(--cor-primaria);
+    transform: 0.2s ease;
+
+}
+
+.nav-login a {
+    color: black;
+}
+
+.btn button:hover {
+    background: #b3ffb3;
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+
+.redes a {
+    margin: 3px;
+}
+
+.form-container {
+    width: 85%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.table-controls {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Garante que as colunas ajustem-se automaticamente */
+}
+
+.user-table th, .user-table td {
+    border: 1px solid #ddd;
+    padding: 12px; /* Aumenta o padding para garantir altura consistente */
+    text-align: left;
+}
+
+.user-table th {
+    background-color: var(--cor-primaria);
+    color: var(--preto);
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.user-table td {
+    vertical-align: middle; /* Centraliza verticalmente o conteúdo das células */
+}
+
+.user-table .actions {
+    width: 150px; /* Define uma largura suficiente para os botões */
+    min-width: 150px; /* Garante uma largura mínima */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.actions .button {
+    display: inline-block;
+    width: 100%; /* Garante que os botões ocupem toda a largura da coluna */
+    padding: 10px 0; /* Ajusta o padding para aumentar a área clicável */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    text-align: center; /* Centraliza o texto dentro do botão */
+    margin: 5px 0; /* Espaço entre os botões */
+}
+
+.button.activate {
+    background-color: #4CAF50; /* Verde para ativar */
+}
+
+.button.deactivate {
+    background-color: #f44336; /* Vermelho para desativar */
+}
+
+.back-button {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    float: right;
+}
+
+.flash-message {
+    display: none;
+    background-color: #f0ad4e;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#toggle {
+    background-color: red; /* Cor para "Ativar" */
+}
+
+#toggle {
+    background-color: green; /* Cor para "Desativar" */
+}
+
+.flash-message {
+    padding: 10px;
+    background-color: #4CAF50; /* Cor de fundo para mensagem de sucesso */
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center; /* Centraliza o texto */
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .main-cadastro, .index, .dashboard-admin {
+        width: 100%;
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .main-table, .panel-board {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .panel {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .user-itens {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-livros {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .svg {
+        margin: 10px 0 0 0;
+    }
+
+    .form-detalhes {
+        margin-bottom: 15px;
+    }
+
+    .card-form {
+        margin-bottom: 15px;
+    }
+
+    .card-detalhes {
+        height: revert;
+    }
+
+    .form-box {
+        margin-bottom: 1rem;
+    } 
+
+    .form-container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .user-table, .user-table thead, .user-table tbody, .user-table th, .user-table td, .user-table tr {
+        display: block;
+    }
+
+    .user-table tr {
+        margin-bottom: 15px;
+    }
+
+    .user-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .user-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 50%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .actions {
+        justify-content: space-between;
+    }
+}
+
+/* Para dispositivos com largura máxima de 1024px (tablets) */
+@media (max-width: 1024px) {
+    .main-cadastro, .index, .dashboard-admin {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    .main-table, .panel-board {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .panel {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .user-itens {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-livros {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .svg {
+        margin: 10px 0 0 0;
+    }
+
+    .form-container {
+        width: 90%;
+    }
+}
