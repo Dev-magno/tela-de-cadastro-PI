@@ -3,19 +3,20 @@ CREATE DATABASE books_db
 
 
 CREATE TABLE Usuario_tb (
-usuario_id INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(20) NOT NULL,
-endereco VARCHAR(160) NOT NULL,
-data_nascimento VARCHAR(12) NOT NULL UNIQUE,
-telefone VARCHAR(12) NOT NULL,
-cpf VARCHAR(11) NOT NULL UNIQUE,
-rg VARCHAR(9) NOT NULL,
-email VARCHAR(100) NOT NULL UNIQUE,
-senha VARCHAR(100) NOT NULL,
-perfil ENUM('normal', 'administrador') DEFAULT 'normal',
-status ENUM('ativo', 'inativo') DEFAULT 'ativo',
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    usuario_id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(20) NOT NULL,
+    endereco VARCHAR(160) NOT NULL,
+    data_nascimento DATE NOT NULL UNIQUE,
+    telefone VARCHAR(15) NOT NULL,
+    cpf VARCHAR(11) NOT NULL UNIQUE,
+    rg VARCHAR(9) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(100) NOT NULL,
+    perfil ENUM('normal', 'administrador') DEFAULT 'normal',
+    status ENUM('ativo', 'inativo') DEFAULT 'ativo',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
 -- Criação da tabela Categoria_tb
 CREATE TABLE Categoria_tb (

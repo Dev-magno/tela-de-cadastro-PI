@@ -42,7 +42,6 @@ $usuario = User::listar();
                 
                 foreach ($usuario as $linha) {
                     echo '<tr>';
-                    echo '<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">';
                     echo '<td>' . htmlspecialchars($linha['nome']) . '</td>';
                     echo '<td>' . htmlspecialchars($linha['endereco']) . '</td>';
                     echo '<td>' . htmlspecialchars($linha['data_nascimento']) . '</td>';

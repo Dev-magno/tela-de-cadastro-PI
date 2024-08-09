@@ -1,23 +1,26 @@
 <?php
-// Ativar a exibição de erros para depuração
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+
 error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 // Iniciar a sessão
 session_start();
+
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";// Verifica o conteúdo da sessão
 
 // Incluir a classe de conexão com o banco de dados e a classe de usuário
 require_once 'Classe/conexao.php'; 
 require_once 'Classe/user.php'; 
 
-// Verificar se o ID do usuário está presente na URL
-if (!isset($_GET['user-id']) || !is_numeric($_GET['user-id'])) {
+// Verificar se o ID do usuário está presente na sessão
+if (!isset($_SESSION['user_id']) || !is_numeric($_SESSION['user_id'])) {
     echo "ID do usuário não fornecido ou inválido.";
     exit;
 }
 
-$usuario_id = (int)$_GET['user-id']; 
+$usuario_id = (int)$_SESSION['user_id']; 
 
 try {
     // Conectar ao banco de dados
@@ -26,7 +29,7 @@ try {
     // Preparar a consulta para buscar as informações do usuário
     $sql_user = "SELECT nome, email, data_nascimento, rg FROM usuario_tb WHERE usuario_id = :id";
     $stmt_user = $conexao->prepare($sql_user);
-    $stmt_user->bindValue(':id', $usuario_id);
+    $stmt_user->bindValue(':id', $usuario_id, PDO::PARAM_INT);
 
     // Executar a consulta e verificar se houve erro
     if (!$stmt_user->execute()) {
@@ -45,7 +48,7 @@ try {
     // Preparar a consulta para buscar os livros do usuário
     $sql_livros = "SELECT imagem FROM livro_tb WHERE usuario_id = :id";
     $stmt_livros = $conexao->prepare($sql_livros);
-    $stmt_livros->bindValue(':id', $usuario_id);
+    $stmt_livros->bindValue(':id', $usuario_id, PDO::PARAM_INT);
 
     // Executar a consulta de livros e verificar se houve erro
     if (!$stmt_livros->execute()) {
@@ -83,10 +86,10 @@ try {
         
         <section class="user">
             <aside>
-                <p>Nome: <?= htmlspecialchars($user['nome']) ?></p>
-                <p>Email: <?= htmlspecialchars($user['email']) ?></p>
-                <p>Data De Nascimento: <?= htmlspecialchars($user['data_nascimento']) ?></p>
-                <p>RG: <?= htmlspecialchars($user['rg']) ?></p>
+                <p><strong>Nome:</strong><?= htmlspecialchars($user['nome']) ?></p>
+                <p><strong>Email:</strong><?= htmlspecialchars($user['email']) ?></p>
+                <p><strong>Data De Nascimento:</strong><?= htmlspecialchars($user['data_nascimento']) ?></p>
+                <p><strong>RG:</strong><?= htmlspecialchars($user['rg']) ?></p>
             </aside>
 
             <section class="user-livros">

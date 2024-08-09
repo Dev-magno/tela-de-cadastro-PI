@@ -1,7 +1,4 @@
 <?php
-//Inicia sessão
-session_start();
-
 //Conexão com o banco de dados
 require_once "Classe/conexao.php";
 

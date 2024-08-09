@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="main-user">
+        <!-- Único formulário que engloba tudo -->
+        <form action="processa_form.php" method="post">
+            <section class="user-itens">
+                <div>
+                    <h1>Bem-vindo, <?= htmlspecialchars($user['nome']) ?></h1>
+                </div>
+                
+                <!-- Campos ocultos para enviar dados -->
+                <input type="hidden" name="nome" value="<?= htmlspecialchars($user['nome']) ?>">
+            </section>
+            
+            <section class="user">
+                <aside>
+                    <!-- Exibindo e enviando os dados do usuário -->
+                    <p><strong>Nome:</strong> <?= htmlspecialchars($user['nome']) ?></p>
+                    <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
+                    <p><strong>Data De Nascimento:</strong> <?= htmlspecialchars($user['data_nascimento']) ?></p>
+                    <p><strong>RG:</strong> <?= htmlspecialchars($user['rg']) ?></p>
+                    <!-- Campos ocultos para enviar os dados via POST -->
+                    <input type="hidden" name="email" value="<?= htmlspecialchars($user['email']) ?>">
+                    <input type="hidden" name="data_nascimento" value="<?= htmlspecialchars($user['data_nascimento']) ?>">
+                    <input type="hidden" name="rg" value="<?= htmlspecialchars($user['rg']) ?>">
+                </aside>
+
+                <section class="user-livros">
+                    <?php if (empty($livros)): ?>
+                        <p>Não há livros disponíveis para este usuário.</p>
+                    <?php else: ?>
+                        <?php foreach ($livros as $livro): ?>
+                            <div>
+                                <img src="<?= htmlspecialchars($livro['imagem']) ?>" alt="Livro">
+                                <!-- Enviando URLs das imagens via POST -->
+                                <input type="hidden" name="livros[]" value="<?= htmlspecialchars($livro['imagem']) ?>">
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </section>
+            </section>
+            
+            <!-- Botão para enviar o formulário -->
+            <button type="submit">Enviar Dados</button>
+        </form>
+    </main>
+</body>
+</html>

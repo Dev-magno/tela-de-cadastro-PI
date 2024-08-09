@@ -204,7 +204,10 @@ Class User {
     }
 
     public function login() {
+        //Inicia sessão
+        session_start();
         try {
+            
             $conexao = Conexao::conectar();
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $email = $_POST['email'];
@@ -214,6 +217,11 @@ Class User {
                 $stmt = $conexao->prepare('SELECT usuario_id, perfil, senha, status FROM usuario_tb WHERE email = ?');
                 $stmt->execute([$email]);
                 $resultado = $stmt->fetch(); // Aqui você define a variável $resultado
+                     
+                // Verifique o conteúdo de $resultado
+                echo "<pre>";
+                print_r($resultado);
+                echo "</pre>";
     
                 // Verifica se o usuário foi encontrado
                 if ($resultado) {
@@ -238,6 +246,8 @@ Class User {
                         $_SESSION['user_id'] = $resultado['usuario_id'];
                         header('Location: dashboard_normal.php');
                         exit();
+                       
+                       
                     } else {
                         echo 'Email ou senha incorretos!';
                     }

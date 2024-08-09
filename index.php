@@ -14,7 +14,7 @@ require_once "Classe/user.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD usuario</title>
     <link rel="stylesheet" href="style.css">
-    <script src="js/dom.js" defer></script>
+    <script src="JS/dom.js" defer></script>
 </head>
 <body>
     <main class="main-cadastro">

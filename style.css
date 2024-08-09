@@ -280,8 +280,8 @@ aside {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 36%;
-    margin-left: 30%;
+    width: 60%;
+    margin-left: 20%;
     margin-top: 10%;
     background-color: var(--cor-cinco);
     border-radius: 8px;
