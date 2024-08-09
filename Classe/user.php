@@ -203,21 +203,26 @@ Class User {
         }
     }
 
-    //Método para processar login
     public function login() {
         try {
             $conexao = Conexao::conectar();
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $email = $_POST['email'];
                 $senha = $_POST['senha'];
-
-                //Verifica se o usuário foi encontrado
-                if($resultado) {
-                    //verifica se o status é 'ativo'
-                    if($resutado['status'] === 'ativo') {
+    
+                // Buscar informações do usuário normal
+                $stmt = $conexao->prepare('SELECT usuario_id, perfil, senha, status FROM usuario_tb WHERE email = ?');
+                $stmt->execute([$email]);
+                $resultado = $stmt->fetch(); // Aqui você define a variável $resultado
+    
+                // Verifica se o usuário foi encontrado
+                if ($resultado) {
+                    // Verifica se o status é 'ativo'
+                    if ($resultado['status'] === 'ativo') {
+                        // Se o status for ativo, considera o usuário como ativo
                         return 'O usuário está ativo!';
-                    }else {
-                        //se o status for ativo considera o usuário 'inativo'
+                    } else {
+                        // Se o status não for ativo, considera o usuário como inativo
                         return 'O usuário está inativo';
                     }
                 }
@@ -228,14 +233,9 @@ Class User {
                     header('Location: dashboard_admin.php');
                     exit();
                 } else {
-                    // Buscar informações do usuário normal
-                    $stmt = $conexao->prepare('SELECT usuario_id, perfil, senha FROM usuario_tb WHERE email = ?');
-                    $stmt->execute([$email]);
-                    $user = $stmt->fetch();
-    
                     // Verificar se a senha está correta
-                    if ($user && password_verify($senha, $user['senha'])) {
-                        $_SESSION['user_id'] = $user['usuario_id'];
+                    if ($resultado && password_verify($senha, $resultado['senha'])) {
+                        $_SESSION['user_id'] = $resultado['usuario_id'];
                         header('Location: dashboard_normal.php');
                         exit();
                     } else {

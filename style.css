@@ -281,7 +281,8 @@ aside {
     align-items: center;
     flex-direction: column;
     width: 36%;
-    margin: 10%;
+    margin-left: 30%;
+    margin-top: 10%;
     background-color: var(--cor-cinco);
     border-radius: 8px;
     box-shadow: 9px 14px 28px 6px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
@@ -296,14 +297,15 @@ aside {
     text-align: center;
 }
 
-/* .welcome-message {
+.welcome-message {
     font-family: 'Poppins';
     font-weight: 400;
     margin: 15px 10px;
-} */
+} 
 
 .panel-board {
     display: flex;
+    width: 100%;
 }
 
  .panel {
