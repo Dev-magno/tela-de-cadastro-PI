@@ -15,9 +15,7 @@ $user = new User();
     $rg = $_POST['rg'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $senha = $_POST['perfil'];
-    $senha = $_POST['status'];
-
+   
     $user->setNome($nome);
     $user->setEndereco($endereco);
     $user->setDataNascimento($data_nascimento);
@@ -26,8 +24,6 @@ $user = new User();
     $user->setRg($rg);
     $user->setEmail($email);
     $user->setSenha($senha);
-    $user->setSenha($perfil);
-    $user->setSenha($status);
     $user->criar();
 
     header("Location: index.php");

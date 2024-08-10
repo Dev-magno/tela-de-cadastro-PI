@@ -6,10 +6,6 @@ ini_set('display_errors', 1);
 // Iniciar a sessão
 session_start();
 
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";// Verifica o conteúdo da sessão
-
 // Incluir a classe de conexão com o banco de dados e a classe de usuário
 require_once 'Classe/conexao.php'; 
 require_once 'Classe/user.php'; 

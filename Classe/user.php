@@ -112,7 +112,7 @@ Class User {
     public  function criar() {
         try {
             $conexao = Conexao::conectar();
-            $sql = "INSERT INTO usuario_tb (nome, endereco, data_nascimento, telefone, cpf, rg, email, senha, perfil, status) VALUES (:nome, :endereco, :data_nascimento, :telefone, :cpf, :rg, :email, :senha, :perfil, :status)";
+            $sql = "INSERT INTO usuario_tb (nome, endereco, data_nascimento, telefone, cpf, rg, email, senha) VALUES (:nome, :endereco, :data_nascimento, :telefone, :cpf, :rg, :email, :senha)";
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(':nome', $this->getNome());
             $stmt->bindValue(':endereco', $this->getEndereco());
@@ -122,8 +122,6 @@ Class User {
             $stmt->bindValue(':rg', $this->getRg());
             $stmt->bindValue(':email', $this->getEmail());
             $stmt->bindValue(':senha', $this->getSenha());
-            $stmt->bindValue(':perfil', $this->getPerfil());
-            $stmt->bindValue(':status', $this->getStatus());
             $stmt->execute();
             
         } catch (PDOException $e) {
@@ -218,11 +216,6 @@ Class User {
                 $stmt->execute([$email]);
                 $resultado = $stmt->fetch(); // Aqui você define a variável $resultado
                      
-                // Verifique o conteúdo de $resultado
-                echo "<pre>";
-                print_r($resultado);
-                echo "</pre>";
-    
                 // Verifica se o usuário foi encontrado
                 if ($resultado) {
                     // Verifica se o status é 'ativo'

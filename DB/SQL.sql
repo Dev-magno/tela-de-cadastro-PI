@@ -2,7 +2,7 @@
 CREATE DATABASE books_db
 
 
-CREATE TABLE Usuario_tb (
+CREATE TABLE usuario_tb (
     usuario_id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(20) NOT NULL,
     endereco VARCHAR(160) NOT NULL,
@@ -12,21 +12,21 @@ CREATE TABLE Usuario_tb (
     rg VARCHAR(9) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(100) NOT NULL,
-    perfil ENUM('normal', 'administrador') DEFAULT 'normal',
-    status ENUM('ativo', 'inativo') DEFAULT 'ativo',
+    perfil ENUM('normal', 'administrador') NOT NULL DEFAULT 'normal',
+    status ENUM('ativo', 'inativo') NOT NULL DEFAULT 'ativo',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
 -- Criação da tabela Categoria_tb
-CREATE TABLE Categoria_tb (
+CREATE TABLE categoria_tb (
 categoria_id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
 exige_isbn BOOLEAN NOT NULL
 );
 
 -- Criação da tabela Livro_tb
-CREATE TABLE Livro_tb (
+CREATE TABLE livro_tb (
 livro_id INT PRIMARY KEY AUTO_INCREMENT,
 titulo VARCHAR(150) NOT NULL,
 categoria_id INT NOT NULL,
@@ -41,7 +41,7 @@ FOREIGN KEY (usuario_id) REFERENCES Usuario_tb(usuario_id)
 );
 
 -- Criação da tabela Troca_tb
-CREATE TABLE Troca_tb (
+CREATE TABLE troca_tb (
 troca_id INT PRIMARY KEY AUTO_INCREMENT,
 livro_oferecido_id INT NOT NULL,
 livro_desejado_id INT NOT NULL,
@@ -80,16 +80,6 @@ RG: 987654321
 Email: pedro.santos@example.com
 Senha: P3dr0S@nt0s1978
 
-Perfil 3
-Nome: Ana Costa
-Endereço: Rua das Palmeiras, 321, Bairro Boa Vista, Porto Alegre, RS
-Data de Nascimento: 05/05/1992
-Telefone: 51987654321
-CPF: 32165498700
-RG: 456789123
-Email: ana.costa@example.com
-Senha: @n@C0st@1992
-
 Perfil 4
 Nome: Lucas Ferreira
 Endereço: Avenida Paulista, 1000, Bela Vista, São Paulo, SP
@@ -100,3 +90,4 @@ RG: 78912345600
 Email: lucas.ferreira@example.com
 Senha: Luc@sF3rr88
 
+isa - H_!#res945
