@@ -7,12 +7,13 @@ require_once "Classe/user.php";
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Login</title>
     <link rel="stylesheet" href="style.css">
+    <script src="JS/dom.js" defer></script>
 <body>
     <section class="card-detalhes">
         <div class="form-detalhes">
@@ -22,15 +23,17 @@ require_once "Classe/user.php";
         <div class="form-box">
             <div class="card-form">
                 <h2>Login</h2>
-                <form action="verifica.php" method = "POST">
+                <form action="verifica.php" method = "POST" onsubmit="return validarForm()">
                     <div class="container">
                         <label for="email">Email:</label>
-                        <input type="email" name="email" placeholder="Digite seu email" required arial-required="true" id="email">
+                        <input type="email" name="email" id="email" placeholder="Digite seu email" arial-required="true">
                     </div>
         
                     <div class="container">
                         <label for="senha">Senha:</label>
-                        <input type="password" name="senha" placeholder="Digite sua senha" required arial-required="true" id="senha">
+                        <input type="password" name="senha" id="senha" placeholder="Digite sua senha" arial-required="true">
+                        <img id="showPassword" class="show-password-button" src="./img/olho_fechado.png" alt="Campo para inserir a senha do usuario">
+                        <span class="span-cadastro" id="message"></span>
 
                     <div class="nav-login">
                         <a href="#" class="link">Recuperar senha?</a>  
@@ -39,13 +42,12 @@ require_once "Classe/user.php";
                
                     <div class="btn">
                         <button type="submit">Entrar</button>
-
-                        <div>
-                            <a href="index.php">Cadastrar</a>
-                        </div> 
                     </div>                             
-                    <div id="flash-message" class="flash-message">A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula e um dígito.</div>
+                    <!-- <div id="flash-message" class="flash-message">A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula e um dígito.</div> -->
                 </form>
+                <div>
+                    <a href="index.php">Cadastrar</a>
+                </div> 
             </div>
         </div>
 

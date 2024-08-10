@@ -57,13 +57,7 @@ Class User {
     $this->senha = password_hash($senha, PASSWORD_DEFAULT);//cria um novo hash de senha usando um algoritmo forte de hash de mão única, especificando o algoritimo a ser usado bcrypt. 
     } 
 
-    public function setPerfil($perfil) {
-        $this->perfil = $perfil;
-    }
-
-    public function setStatus($status) {
-        $this->status = $status;
-    }
+   
     // Getters para retornar o nome do objeto
     public function getUsuarioId() {
         return $this->usuario_id;
@@ -100,13 +94,6 @@ Class User {
         return $this->senha;
     }
 
-    public function getPerfil() {
-        return $this->perfil;
-    }
-
-    public function getStatus() {
-        return $this->status;
-    }
 
     //Método para criar usuário
     public  function criar() {
@@ -146,8 +133,6 @@ Class User {
         $this->setRg($resultado['rg']);
         $this->setEmail($resultado['email']);
         $this->setSenha($resultado['senha']);
-        $this->setSenha($resultado['perfil']);
-        $this->setSenha($resultado['status']);
     }
 
     //Método para listar usuário
@@ -169,7 +154,7 @@ Class User {
     public function atualizar() {
         try {
             $conexao = Conexao::conectar();
-            $sql = 'UPDATE usuario_tb SET nome=:nome, endereco=:endereco, data_nascimento=:data_nascimento, telefone=:telefone, cpf=:cpf, rg=:rg, email=:email, senha=:senha, perfil=:perfil, status=:status WHERE usuario_id = :usuario_id';
+            $sql = 'UPDATE usuario_tb SET nome=:nome, endereco=:endereco, data_nascimento=:data_nascimento, telefone=:telefone, cpf=:cpf, rg=:rg, email=:email, senha=:senha WHERE usuario_id = :usuario_id';
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(':nome', $this->getNome());
             $stmt->bindValue(':endereco', $this->getEndereco());
@@ -179,8 +164,6 @@ Class User {
             $stmt->bindValue(':rg', $this->getRg());
             $stmt->bindValue(':email', $this->getEmail());
             $stmt->bindValue(':senha', $this->getSenha());
-            $stmt->bindValue(':perfil', $this->getPerfil());
-            $stmt->bindValue(':status', $this->getStatus());
             $stmt->bindValue(':usuario_id', $this->getUsuarioId());
             $stmt->execute();
         } catch (PDOException $e) {
@@ -202,56 +185,48 @@ Class User {
     }
 
     public function login() {
-        //Inicia sessão
-        session_start();
         try {
-            
+            // Processar o login
             $conexao = Conexao::conectar();
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $email = $_POST['email'];
                 $senha = $_POST['senha'];
     
-                // Buscar informações do usuário normal
-                $stmt = $conexao->prepare('SELECT usuario_id, perfil, senha, status FROM usuario_tb WHERE email = ?');
-                $stmt->execute([$email]);
-                $resultado = $stmt->fetch(); // Aqui você define a variável $resultado
-                     
-                // Verifica se o usuário foi encontrado
-                if ($resultado) {
-                    // Verifica se o status é 'ativo'
-                    if ($resultado['status'] === 'ativo') {
-                        // Se o status for ativo, considera o usuário como ativo
-                        return 'O usuário está ativo!';
-                    } else {
-                        // Se o status não for ativo, considera o usuário como inativo
-                        return 'O usuário está inativo';
-                    }
+                if (!isset($_SESSION)) {
+                    session_start();
                 }
     
-                // Verificar se o login é para o administrador
-                if ($email === 'admin@exemplo.com' && $senha === 'senha_admin') {
+                // Busca informações do usuário
+                $sql = 'SELECT usuario_id, perfil, senha FROM usuario_tb WHERE email=?';
+                $stmt = $conexao->prepare($sql);
+                $stmt->execute([$email]);
+                $user = $stmt->fetch();
+
+                 // Verifique se o login é para o administrador
+                 if ($email === 'admin@exemplo.com' && hash('sha256', $senha) === hash('sha256', 'senha_admin')) {
                     $_SESSION['user_id'] = 1; // ID do administrador
                     header('Location: dashboard_admin.php');
                     exit();
-                } else {
-                    // Verificar se a senha está correta
-                    if ($resultado && password_verify($senha, $resultado['senha'])) {
-                        $_SESSION['user_id'] = $resultado['usuario_id'];
-                        header('Location: dashboard_normal.php');
-                        exit();
-                       
-                       
-                    } else {
-                        echo 'Email ou senha incorretos!';
-                    }
                 }
+    
+                // Verifique se o usuário foi encontrado
+                if ($user) {
+                    // Verifique a senha usando password_verify
+                    if (password_verify($senha, $user['senha'])) {
+                        $_SESSION['user_id'] = $user['usuario_id'];
+    
+                            header('Location: dashboard_normal.php');
+                            exit();
+                        }else {
+                        echo "Email ou senha incorreto!";
+                    }
+                } 
             }
         } catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();
         }
     }
     
-
    // Método para alternar o status do usuário (ativo/inativo)
     public function toggleUsuarioStatus() {
         try {

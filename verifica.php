@@ -10,4 +10,5 @@ $user = new User();
 
 //Acessa o método login da classe usuário
 $user->login();
+
 ?>

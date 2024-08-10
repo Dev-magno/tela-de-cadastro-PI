@@ -53,3 +53,80 @@
     </main>
 </body>
 </html>
+
+
+    public function login() {
+    
+        try {
+            // Processar o login
+            $conexao = Conexao::conectar();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $email = trim($_POST['email']);
+                $senha = trim($_POST['senha']);
+
+                if(!isset($_SESSION)) {
+                    session_start();
+                }
+    
+                // Busca informações do usuário
+                $sql = 'SELECT usuario_id, perfil, senha FROM usuario_tb WHERE email=?';
+                $stmt = $conexao->prepare($sql);
+                $stmt->execute([$email]);
+                $user = $stmt->fetch();
+
+                 // Depuração: Exibir informações
+                echo '<pre>';
+                echo "Senha fornecida: " . htmlspecialchars($senha) . "<br>";
+                echo "Hash armazenado: " . htmlspecialchars($user['senha']) . "<br>";
+                echo "Senha válida com password_verify? " . (password_verify($senha, $user['senha']) ? 'Sim' : 'Não') . "<br>";
+                echo '</pre>';
+    
+                // Verifique se o login é para o administrador
+                if ($email === 'admin@exemplo.com' && hash('sha256', $senha) === hash('sha256', 'senha_admin')) {
+                    $_SESSION['user_id'] = 1; // ID do administrador
+                    header('Location: dashboard_admin.php');
+                    exit();
+                }
+
+                // Exemplo de teste
+                // Senha fornecida pelo usuário
+                $senha = 'Luc@sF3rr88'; // Substitua pela senha que está tentando testar
+
+                // Hash armazenado no banco de dados
+                $hash = '$2y$10$hV/mJnoQYIZu7kgJmDNY6efs.23SikCR0DntAZaKQ6EHMSt4Af8lG'; // Hash do banco de dados
+
+                // Verificar se a senha corresponde ao hash
+                if (password_verify($senha, $hash)) {
+                    echo "Senha correta!";
+                } else {
+                    echo "Senha incorreta!";
+                }
+    
+                if ($user) {
+                    var_dump(password_verify($senha, $user['senha'])); // Deveria retornar true se a senha estiver correta
+                    var_dump($user['senha']);
+                }
+                if ($user) {
+                    if (password_verify($senha, $user['senha'])) {
+                        echo "Senha correta!";
+                    } else {
+                        echo "Senha incorreta!";
+                    }
+                }
+                
+    
+                // Login especial de usuário fixo (exemplo)
+                //  if($email === 'lucas.ferreira@example.com' && hash('sha256', $senha) === hash('sha256', 'Luc@sF3rr88')) {
+                //     $_SESSION['user_id'] = 5;
+                //     header('Location: dashboard_normal.php');
+                //     exit();
+                // }
+    
+                // Se falhar, exibir mensagem de erro
+                echo "Email ou senha incorreto!";
+            }
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    

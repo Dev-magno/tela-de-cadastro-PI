@@ -19,8 +19,7 @@ $cpf = $_POST['cpf'];
 $rg = $_POST['rg']; 
 $email = $_POST['email']; 
 $senha = $_POST['senha'];
-$senha = $_POST['perfil'];
-$senha = $_POST['status'];
+
 
 $user = new User($id); //Cria um nome objeto usuario
 
@@ -33,8 +32,6 @@ $user->setCpf($cpf);
 $user->setRg($rg);
 $user->setEmail($email);
 $user->setSenha($senha);
-$user->setSenha($perfil);
-$user->setSenha($status);
 
 $user->atualizar();
 

@@ -143,14 +143,14 @@ textarea {
 }
 
 table {
-    width: 100%;
+    /* width: 100%; */
     border-collapse: collapse;
 }
 
 th, td {
     border: 1px solid #ddd;
     padding: 6px;
-    width: 90px; /* Defina a largura fixa das colunas */
+    /* width: 90px; */
     height: 40px; /* Defina a altura fixa das células */
 }
 
