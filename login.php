@@ -32,8 +32,8 @@ require_once "Classe/user.php";
                     <div class="container">
                         <label for="senha">Senha:</label>
                         <input type="password" name="senha" id="senha" placeholder="Digite sua senha" arial-required="true">
-                        <img id="showPassword" class="show-password-button" src="./img/olho_fechado.png" alt="Campo para inserir a senha do usuario">
-                        <span class="span-cadastro" id="message"></span>
+                        <img id="showPassword" class="show-password-button-login" src="./img/olho_fechado.png" alt="Campo para inserir a senha do usuario">
+                        
 
                     <div class="nav-login">
                         <a href="#" class="link">Recuperar senha?</a>  

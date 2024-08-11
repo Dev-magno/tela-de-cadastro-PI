@@ -202,6 +202,7 @@ Class User {
                 $stmt->execute([$email]);
                 $user = $stmt->fetch();
 
+
                  // Verifique se o login é para o administrador
                  if ($email === 'admin@exemplo.com' && hash('sha256', $senha) === hash('sha256', 'senha_admin')) {
                     $_SESSION['user_id'] = 1; // ID do administrador

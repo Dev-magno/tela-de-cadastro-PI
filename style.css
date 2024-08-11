@@ -65,6 +65,18 @@ input[type="password"] {
     /* display: none; */
     cursor: pointer;
   }
+
+  /* estilização da img do olho para login */
+.show-password-button-login {
+    position: absolute;
+    left: 89%;
+    top: 80%;
+    transform: translateY(-40%);
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+  }
+  /* Só até aqui */
   
 input[type="number"],
 input[type="date"],
@@ -347,7 +359,7 @@ aside {
     color: var(--preto);
     margin-left: 4px;
 }
-
+/* Aqui começa o css da página de login */
 .card-detalhes {
     display: flex;
     flex-wrap: wrap;
@@ -462,7 +474,7 @@ aside {
 .btn button:hover {
     background: #b3ffb3;
 }
-
+/* Aqui termina o css da página de login*/
 .redes {
     display: flex;
     justify-content: center;
