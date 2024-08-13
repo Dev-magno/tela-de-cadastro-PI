@@ -48,6 +48,7 @@ Class User {
     public function setRg($rg) {
         return $this->rg = $rg;
     }
+
     public function setEmail($email) {
         return  $this->email = $email;
     }
@@ -56,6 +57,24 @@ Class User {
    public function setSenha($senha) {
     $this->senha = password_hash($senha, PASSWORD_DEFAULT);//cria um novo hash de senha usando um algoritmo forte de hash de mão única, especificando o algoritimo a ser usado bcrypt. 
     } 
+
+    public function setPerfil($perfil) {
+        // Define o perfil somente se for válido
+        if (in_array($perfil, ['normal', 'administrador'])) {
+            $this->perfil = $perfil;
+        } else {
+            throw new Exception("Perfil inválido. Deve ser 'normal' ou 'administrador'.");
+        }
+    }
+
+    public function setStatus($status) {
+        // Verifica se o status é válido
+        if (in_array($status, ['ativo', 'inativo'])) {
+            $this->status = $status;
+        } else {
+            throw new Exception("Status inválido. Deve ser 'ativo' ou 'inativo'.");
+        }
+    }
 
    
     // Getters para retornar o nome do objeto
@@ -94,12 +113,20 @@ Class User {
         return $this->senha;
     }
 
+    public function getPerfil() {
+        return $this->perfil;
+    }
+
+    public function getStatus() {
+        return $this->status;
+    }
+
 
     //Método para criar usuário
     public  function criar() {
         try {
             $conexao = Conexao::conectar();
-            $sql = "INSERT INTO usuario_tb (nome, endereco, data_nascimento, telefone, cpf, rg, email, senha) VALUES (:nome, :endereco, :data_nascimento, :telefone, :cpf, :rg, :email, :senha)";
+            $sql = "INSERT INTO Usuario_tb (nome, endereco, data_nascimento, telefone, cpf, rg, email, senha, perfil, status) VALUES (:nome, :endereco, :data_nascimento, :telefone, :cpf, :rg, :email, :senha, :perfil, :status)";
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(':nome', $this->getNome());
             $stmt->bindValue(':endereco', $this->getEndereco());
@@ -109,6 +136,8 @@ Class User {
             $stmt->bindValue(':rg', $this->getRg());
             $stmt->bindValue(':email', $this->getEmail());
             $stmt->bindValue(':senha', $this->getSenha());
+            $stmt->bindValue(':perfil', $this->getPerfil());
+            $stmt->bindValue(':status', $this->getStatus());
             $stmt->execute();
             
         } catch (PDOException $e) {
@@ -119,7 +148,7 @@ Class User {
      //Método carregar
      public function carregar() {
         $conexao = Conexao::conectar();
-        $sql = "SELECT * FROM usuario_tb WHERE usuario_id = :id";
+        $sql = "SELECT * FROM Usuario_tb WHERE usuario_id = :id";
         $stmt = $conexao->prepare($sql);
         $stmt->bindValue(':id', $this->getUsuarioId());
         $stmt->execute();
@@ -140,7 +169,7 @@ Class User {
         //Tratamento de erro
         try {
             $conexao = Conexao::conectar();
-            $sql = "SELECT * FROM usuario_tb";
+            $sql = "SELECT * FROM Usuario_tb";
             $stmt = $conexao->prepare($sql);
             $stmt->execute();
             $usuario = $stmt->fetchAll();
@@ -154,7 +183,7 @@ Class User {
     public function atualizar() {
         try {
             $conexao = Conexao::conectar();
-            $sql = 'UPDATE usuario_tb SET nome=:nome, endereco=:endereco, data_nascimento=:data_nascimento, telefone=:telefone, cpf=:cpf, rg=:rg, email=:email, senha=:senha WHERE usuario_id = :usuario_id';
+            $sql = 'UPDATE Usuario_tb SET nome=:nome, endereco=:endereco, data_nascimento=:data_nascimento, telefone=:telefone, cpf=:cpf, rg=:rg, email=:email, senha=:senha WHERE usuario_id = :usuario_id';
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(':nome', $this->getNome());
             $stmt->bindValue(':endereco', $this->getEndereco());
@@ -175,7 +204,7 @@ Class User {
         try {
             //conexão com o banco
             $conexao = Conexao::conectar();
-            $sql = "DELETE FROM usuario_tb WHERE usuario_id = :id";
+            $sql = "DELETE FROM Usuario_tb WHERE usuario_id = :id";
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(':id', $this->getUsuarioId());
             $stmt->execute();
@@ -197,7 +226,7 @@ Class User {
                 }
     
                 // Busca informações do usuário
-                $sql = 'SELECT usuario_id, perfil, senha FROM usuario_tb WHERE email=?';
+                $sql = 'SELECT usuario_id, perfil, senha FROM Usuario_tb WHERE email=?';
                 $stmt = $conexao->prepare($sql);
                 $stmt->execute([$email]);
                 $user = $stmt->fetch();
@@ -215,11 +244,10 @@ Class User {
                     // Verifique a senha usando password_verify
                     if (password_verify($senha, $user['senha'])) {
                         $_SESSION['user_id'] = $user['usuario_id'];
-    
                             header('Location: dashboard_normal.php');
                             exit();
                         }else {
-                        echo "Email ou senha incorreto!";
+                        echo "Senha inválida! A senha deve conter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, dígitos e caracteres especiai";
                     }
                 } 
             }
@@ -237,7 +265,7 @@ Class User {
                 $user_id = $_POST['user_id'];
                 
                 // Consulta SQL para obter o status atual do usuário
-                $sql = "SELECT status FROM usuario_tb WHERE usuario_id = :id";
+                $sql = "SELECT status FROM Usuario_tb WHERE usuario_id = :id";
                 $stmt = $conexao->prepare($sql); // Prepara a consulta
                 
                 if ($stmt) { // Verifica se a preparação da consulta foi bem-sucedida
@@ -252,7 +280,7 @@ Class User {
                         $novo_status = ($resultado['status'] === 'ativo') ? 'inativo' : 'ativo';
                     
                         // Consulta SQL para atualizar o status do usuário
-                        $sql_update = "UPDATE usuario_tb SET status = :status WHERE usuario_id = :id";
+                        $sql_update = "UPDATE Usuario_tb SET status = :status WHERE usuario_id = :id";
                         $stmt_update = $conexao->prepare($sql_update);
                         
                         if ($stmt_update) {

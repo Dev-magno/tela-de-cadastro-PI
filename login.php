@@ -45,7 +45,7 @@ require_once "Classe/user.php";
                     </div>                             
                     <!-- <div id="flash-message" class="flash-message">A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula e um dígito.</div> -->
                 </form>
-                <div>
+                <div class="link-cadastro">
                     <a href="index.php">Cadastrar</a>
                 </div> 
             </div>

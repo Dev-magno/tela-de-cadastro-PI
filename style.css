@@ -469,10 +469,17 @@ aside {
 
 .nav-login a {
     color: black;
+    margin-left: 0px;
 }
 
 .btn button:hover {
     background: #b3ffb3;
+}
+
+.link-cadastro a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* Aqui termina o css da página de login*/
 .redes {
@@ -600,6 +607,22 @@ h1 {
     text-align: center; /* Centraliza o texto */
 }
 
+/*estilização da mensagem de cooke */
+.alert {
+    background-color: #dff0d8; /* Cor de fundo verde claro indicando sucesso */
+    color: #3c763d; /* Cor do texto em verde escuro */
+    border: 1px solid #3c763d; /* Borda verde escuro */
+    padding: 15px; /* Espaçamento interno */
+    margin: 20px 0; /* Espaçamento externo para separar a mensagem do conteúdo */
+    border-radius: 5px; /* Borda arredondada */
+    font-size: 16px; /* Tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+    font-family: 'Arial', sans-serif; /* Define a fonte */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    max-width: 600px; /* Largura máxima para a mensagem */
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+}
 
 
 @media only screen and (max-width: 600px) {

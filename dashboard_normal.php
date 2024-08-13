@@ -15,7 +15,7 @@ if (isset($_SESSION['user_id']) && is_numeric($_SESSION['user_id'])) {
         $conexao = Conexao::conectar();
 
         // Preparar a consulta para buscar as informações do usuário
-        $sql_user = "SELECT nome, email, data_nascimento, rg FROM usuario_tb WHERE usuario_id = :id";
+        $sql_user = "SELECT nome, email, data_nascimento, rg FROM Usuario_tb WHERE usuario_id = :id";
         $stmt_user = $conexao->prepare($sql_user);
         $stmt_user->bindValue(':id', $usuario_id, PDO::PARAM_INT);
         $stmt_user->execute();
@@ -27,7 +27,7 @@ if (isset($_SESSION['user_id']) && is_numeric($_SESSION['user_id'])) {
         }
 
         // Preparar a consulta para buscar os livros do usuário
-        $sql_livros = "SELECT titulo FROM livro_tb WHERE usuario_id = :id";
+        $sql_livros = "SELECT titulo FROM Livro_tb WHERE usuario_id = :id";
         $stmt_livros = $conexao->prepare($sql_livros);
         $stmt_livros->bindValue(':id', $usuario_id, PDO::PARAM_INT);
         $stmt_livros->execute();

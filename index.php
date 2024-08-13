@@ -1,12 +1,20 @@
 <?php
+
 //Conexão com o banco de dados
 require_once "Classe/conexao.php";
 
 //Classe usuário
 require_once "Classe/user.php";
-
 ?>
 
+<?php if(isset($_COOKIE['aviso'])) : ?>
+    <section>
+        <div class="alert">
+            <?= $_COOKIE['aviso'] ?>
+            <?php setcookie('aviso', '', time() - 10000, '/tela-de-cadastro-PI') ?>
+        </div>
+    </section>
+<?php endif;?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -17,6 +25,7 @@ require_once "Classe/user.php";
     <script src="JS/dom.js" defer></script>
 </head>
 <body>
+    
     <main class="main-cadastro">
         <h2>Cadastrar Usuário</h2>
         <form action="insert.php" method="POST" onsubmit="return validarForm()">

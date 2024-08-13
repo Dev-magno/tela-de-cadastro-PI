@@ -1,8 +1,8 @@
 -- Criação do banco de dados books_db
-CREATE DATABASE books_db
+CREATE DATABASE books_db;
 
 
-CREATE TABLE usuario_tb (
+CREATE TABLE Usuario_tb (
     usuario_id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(20) NOT NULL,
     endereco VARCHAR(160) NOT NULL,
@@ -19,14 +19,14 @@ CREATE TABLE usuario_tb (
 
 
 -- Criação da tabela Categoria_tb
-CREATE TABLE categoria_tb (
+CREATE TABLE Categoria_tb (
 categoria_id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
 exige_isbn BOOLEAN NOT NULL
 );
 
 -- Criação da tabela Livro_tb
-CREATE TABLE livro_tb (
+CREATE TABLE Livro_tb (
 livro_id INT PRIMARY KEY AUTO_INCREMENT,
 titulo VARCHAR(150) NOT NULL,
 categoria_id INT NOT NULL,
@@ -41,7 +41,7 @@ FOREIGN KEY (usuario_id) REFERENCES Usuario_tb(usuario_id)
 );
 
 -- Criação da tabela Troca_tb
-CREATE TABLE troca_tb (
+CREATE TABLE Troca_tb (
 troca_id INT PRIMARY KEY AUTO_INCREMENT,
 livro_oferecido_id INT NOT NULL,
 livro_desejado_id INT NOT NULL,
@@ -92,6 +92,7 @@ Senha: Luc@sF3rr88
 
 magno - lopes12@as
 luana - Lu_12ar$00
+joão - JU_asr!34@&
 
 
            
