@@ -142,98 +142,8 @@ textarea {
     background-color: #0056b3;
 }
 
-.main-table {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10%;
-}
 
-.main-table h2 {
-    margin-bottom: 20px;
-}
-
-table {
-    /* width: 100%; */
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 6px;
-    /* width: 90px; */
-    height: 40px; /* Defina a altura fixa das células */
-}
-
-.table-voltar {
-    margin-top: 10px;
-    background-color: var(--cor-cinco);
-}
-
-th {
-    background-color: #f2f2f2;
-    text-align: center;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.actions {
-    width: 110px;
-}
-
-.actions a {
-    text-decoration: none;
-    padding: 2px 2px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#editar {
-    background-color: #C7B7A3; 
-    margin-right: 10px;
-    color: white;
-    border: none;
-}
-
-#editar:hover {
-    background-color: var(--cor-quatro); 
-}
-
-#excluir {
-    background-color: #FF0000; 
-    color: white;
-    border: none;
-}
-
-#excluir:hover {
-    background-color: #CC0000;
-}
-
-.voltar {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-}
-
-.voltar a {
-    text-decoration: none;
-    background-color: #19324e;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.voltar a:hover {
-    background-color: #102438; /* Cor mais escura para o botão voltar ao passar o mouse */
-}
-
-
+/*------------------------------------ */
 
 .main-user {
     display: flex;
@@ -287,6 +197,7 @@ aside {
     margin: 5px;
 }
 
+/*Painel admin  */
 .dashboard-admin{
     display: flex;
     justify-content: center;
@@ -298,6 +209,7 @@ aside {
     background-color: var(--cor-cinco);
     border-radius: 8px;
     box-shadow: 9px 14px 28px 6px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+    position: relative;
 }
 
 .div-admin {
@@ -320,7 +232,7 @@ aside {
     width: 100%;
 }
 
- .panel {
+.panel {
     flex: 1;
     min-width: 220px;
     border-radius: 8px;
@@ -352,8 +264,39 @@ aside {
 .panel a:hover {
     background-color: var(--cor-tres);
 }
+/*---------------------------------- */
 
+/*Botão logout*/
+.button {
+    background-color: var(--cor-primaria); /* Cor do botão */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px 5px;
+    font-size: 14px;
+    cursor: pointer;
+    position: absolute;
+    top: 1.3%;
+    right: 1.3%;
+}
 
+.button-normal {
+    background-color: #f1f1f1; /* Cor do botão */
+    color: var(--preto);
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 2px 2px;
+    font-size: 14px;
+    cursor: pointer;
+    position: absolute;
+    top: 5%;
+    right: 7%;
+}
+
+.button:hover {
+    background-color: #d32f2f; /* Cor do botão ao passar o mouse */
+}
+/*-----------------------------------------------------*/
 .span-cadastro {
     font-size: 0.7rem;
     color: var(--preto);
@@ -494,117 +437,102 @@ aside {
     margin: 3px;
 }
 
-.form-container {
-    width: 85%;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
+/* Estilo da tabela*/
+.form-wrapper {
+    width: 80%;
+    margin: 60px auto;
+    padding: 8px;
+    background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    text-align: center;
-    color: #333;
+/* Back button styling */
+.controls {
     margin-bottom: 20px;
 }
 
-.table-controls {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.table-wrapper {
-    overflow-x: auto;
-}
-
-.user-table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: auto; /* Garante que as colunas ajustem-se automaticamente */
-}
-
-.user-table th, .user-table td {
-    border: 1px solid #ddd;
-    padding: 12px; /* Aumenta o padding para garantir altura consistente */
-    text-align: left;
-}
-
-.user-table th {
-    background-color: var(--cor-primaria);
-    color: var(--preto);
-}
-
-.user-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.user-table td {
-    vertical-align: middle; /* Centraliza verticalmente o conteúdo das células */
-}
-
-.user-table .actions {
-    width: 150px; /* Define uma largura suficiente para os botões */
-    min-width: 150px; /* Garante uma largura mínima */
-    text-align: center; /* Centraliza o conteúdo */
-}
-
-.actions .button {
+.btn-back {
     display: inline-block;
-    width: 100%; /* Garante que os botões ocupem toda a largura da coluna */
-    padding: 10px 0; /* Ajusta o padding para aumentar a área clicável */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    color: white;
-    text-align: center; /* Centraliza o texto dentro do botão */
-    margin: 5px 0; /* Espaço entre os botões */
-}
-
-.button.activate {
-    background-color: #4CAF50; /* Verde para ativar */
-}
-
-.button.deactivate {
-    background-color: #f44336; /* Vermelho para desativar */
-}
-
-.back-button {
-    background-color: var(--cor-primaria);
-    color: white;
-    padding: 8px 15px;
+    padding: 10px 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: var(--cor-segundaria);
     border-radius: 5px;
     text-decoration: none;
-    cursor: pointer;
-    float: right;
 }
 
-.flash-message {
-    display: none;
-    background-color: #f0ad4e;
-    color: white;
-    padding: 10px;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 1000;
+
+/* Title styling */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
 }
 
-#toggle {
-    background-color: red; /* Cor para "Ativar" */
+/* Table container styling */
+.table-container {
+    overflow-x: auto; /* Allows horizontal scroll for smaller screens */
 }
 
-#toggle {
-    background-color: green; /* Cor para "Desativar" */
+/* Table styling */
+.table-users {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
 }
 
-.flash-message {
-    padding: 10px;
-    background-color: #4CAF50; /* Cor de fundo para mensagem de sucesso */
-    color: white;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    text-align: center; /* Centraliza o texto */
+.table-users th, .table-users td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #a8a7a7; /* Define apenas a borda inferior para criar as linhas horizontais */
+    border-top: none; /* Remove a borda superior */
+    border-left: none; /* Remove a borda esquerda */
+    border-right: none; /* Remove a borda direita */
+}
+
+.table-users th {
+    background-color: var(--cor-primaria);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Estilo para a célula da tabela contendo os botões de ação */
+.table-users .options {
+    text-align: center; /* Centraliza os botões */
+}
+
+/* Estilo para cada botão dentro da célula de opções */
+.table-users .options a {
+    display: block; /* Faz com que os botões ocupem toda a largura da célula */
+    width: 110%; /* Define a largura dos botões para 100% */
+    padding: 6px 4px; /* Adiciona espaçamento vertical */
+    margin: 4px 0; /* Adiciona margem vertical entre os botões */
+    text-align: center; /* Centraliza o texto dentro do botão */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    font-size: 14px; /* Define o tamanho da fonte */
+    color: #fff; /* Define a cor do texto */
+}
+
+/* Estilos individuais para cada botão */
+.table-users .btn.edit {
+    background-color: #28a745; /* Verde para editar */
+}
+
+
+.table-users .btn.delete {
+    background-color: #dc3545; /* Vermelho para excluir */
+}
+
+
+.table-users .btn.status-toggle.enabled {
+    background-color: #ffc107; /* Amarelo para habilitar */
+}
+
+.table-users .btn.status-toggle.disabled {
+    background-color: #6c757d; /* Cinza para desabilitar */
 }
 
 /*estilização da mensagem de cooke */

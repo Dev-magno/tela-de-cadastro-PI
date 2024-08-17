@@ -257,58 +257,26 @@ Class User {
     }
     
    // Método para alternar o status do usuário (ativo/inativo)
-    public function toggleUsuarioStatus() {
+    public function updateStatus($id, $status) {
         try {
             $conexao = Conexao::conectar();
-            // Verifica se o user_id está definido no POST
-            if (isset($_POST['user_id'])) {
-                $user_id = $_POST['user_id'];
-                
-                // Consulta SQL para obter o status atual do usuário
-                $sql = "SELECT status FROM Usuario_tb WHERE usuario_id = :id";
-                $stmt = $conexao->prepare($sql); // Prepara a consulta
-                
-                if ($stmt) { // Verifica se a preparação da consulta foi bem-sucedida
-                    $stmt->bindValue(':id', $user_id); // Atribui o valor do ID do usuário
-                    $stmt->execute(); // Executa a consulta
-                    $resultado = $stmt->fetch(PDO::FETCH_ASSOC); // Obtém o resultado como um array associativo
-                    
-                    // Verifica se o usuário foi encontrado no banco de dados
-                    if ($resultado) {
-                        // Determina o novo status com base no status atual
-                        // Se o status atual é 'ativo', o novo será 'inativo', e vice-versa
-                        $novo_status = ($resultado['status'] === 'ativo') ? 'inativo' : 'ativo';
-                    
-                        // Consulta SQL para atualizar o status do usuário
-                        $sql_update = "UPDATE Usuario_tb SET status = :status WHERE usuario_id = :id";
-                        $stmt_update = $conexao->prepare($sql_update);
-                        
-                        if ($stmt_update) {
-                            // Atribui o valor da variável $novo_status ao parâmetro :status na consulta SQL
-                            $stmt_update->bindValue(':status', $novo_status);
-                            // Atribui o valor da variável $user_id ao parâmetro :id na consulta SQL
-                            $stmt_update->bindValue(':id', $user_id);
-                            
-                            // Executa a atualização e verifica se foi bem-sucedida
-                            if ($stmt_update->execute()) {
-                            // Exibe mensagem de sucesso com base no novo status
-                            echo "Usuário " . ($novo_status === 'ativo' ? 'ativado' : 'desativado') . " com sucesso!";
-                        } else {
-                            echo "Erro ao atualizar o status do usuário.";
-                        }
-                    } else {
-                        echo "Erro ao preparar a consulta de atualização.";
-                    }
-                } else {
-                    echo "Usuário não encontrado.";
-                }
-            } 
-        } 
+            $sql = 'UPDATE Usuario_tb SET status=:status WHERE usuario_id=:id';
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(':status', $status);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+
+            if($stmt->rowCount() > 0) {
+                return true; //Atualização bem-sucedida
+            }else {
+                return false; //Nenhuma linha foi atualizada
+            }
 
         header('location: listar.php');
         exit();
     } catch (PDOException $e) {
         echo "Erro: " . $e->getMessage();
+        return false;
     }
 }
 

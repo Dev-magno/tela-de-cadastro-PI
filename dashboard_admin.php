@@ -21,6 +21,7 @@ require_once "Classe/user.php";
     <section class="dashboard-admin">
         <header class="div-admin">
             <h1>Painel Administrativo</h1>
+            <a href="logout.php" class="button">Sair</a>
         </header>
 
         <div class="welcome-message">
@@ -31,9 +32,8 @@ require_once "Classe/user.php";
                 <h2>Listar Usuários</h2>
                 <a href="listar.php">Ir para a lista de usuários</a>
             </div>
-        </div>
-           
-        </section>
+        </div>   
+    </section>
         
     </div>
 </body>

@@ -62,7 +62,7 @@ Pefis fictcio
 
 Perfil 1
 Nome: Maria Oliveira
-Endereço: Avenida Brasil, 456, Centro, Rio de Janeiro, RJ
+Endereço: Avenida Brasil,Centro, Rio de Janeiro
 Data de Nascimento: 22/07/1990
 Telefone: 21998765432
 CPF: 98765432100
@@ -72,7 +72,7 @@ Senha: Mar!@Oliv1990
 
 Perfil 2
 Nome: Pedro Santos
-Endereço: Rua das Acácias, 789, Bairro Primavera, Belo Horizonte, MG
+Endereço: Rua das Acácias, Bairro Primavera, Belo Horizonte
 Data de Nascimento: 30/11/1978
 Telefone: 31912345678
 CPF: 65432198700

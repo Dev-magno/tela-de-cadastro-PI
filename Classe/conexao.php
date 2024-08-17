@@ -17,7 +17,6 @@ class Conexao{
             die("Erro na conexão: " . $e->getMessage());// termina a execução do script (die()) e exibe uma mensagem personalizada e retora a mensagem de erro da exceção ($e->getMessage()). 
         }
            
-    }
-    
+    }  
 }
 

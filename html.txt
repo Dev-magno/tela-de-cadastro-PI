@@ -170,3 +170,95 @@
                }
           }
 
+
+
+
+/* Estilo da tabela*/
+.form-container {
+    width: 85%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.table-controls {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Garante que as colunas ajustem-se automaticamente */
+}
+
+.user-table th, .user-table td {
+    border: 1px solid #ddd;
+    padding: 12px; /* Aumenta o padding para garantir altura consistente */
+    text-align: left;
+}
+
+.user-table th {
+    background-color: var(--cor-primaria);
+    color: var(--preto);
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.user-table td {
+    vertical-align: middle; /* Centraliza verticalmente o conteúdo das células */
+}
+
+.user-table .actions {
+    width: 150px; /* Define uma largura suficiente para os botões */
+    min-width: 150px; /* Garante uma largura mínima */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.actions .button {
+    display: inline-block;
+    width: 100%; /* Garante que os botões ocupem toda a largura da coluna */
+    padding: 10px 0; /* Ajusta o padding para aumentar a área clicável */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    text-align: center; /* Centraliza o texto dentro do botão */
+    margin: 5px 0; /* Espaço entre os botões */
+}
+
+
+.back-button {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    float: right;
+}
+
+/* estilo para mudar a cor do botão ativar/desativar */
+.button.toggle.ativo {
+    background-color: green;
+    color: white;
+}
+
+.button.toggle.inativo {
+    background-color: red;
+    color: white;
+}

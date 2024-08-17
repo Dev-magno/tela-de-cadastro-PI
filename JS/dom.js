@@ -63,18 +63,37 @@ function exibirAlerta() {
     alert('Cadastro bem sucedido!')
 }
 
-// Função para exibir a mensagem de flash
-function showFlashMessage() {
-    let flashMessage = document.getElementById('flash-message');
-    flashMessage.style.display = 'block';
-    setTimeout(() => {
-        flashMessage.style.display = 'none';
-    }, 5000); // A mensagem desaparecerá após 5 segundos
+
+function toggleStatus(userId) {
+    // Cria uma nova requisição AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "toggle.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    // Define o que acontece quando a resposta é recebida
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // Recebe a resposta do servidor
+            var response = xhr.responseText.trim();
+
+            // Obtém o elemento do botão pelo ID
+            var button = document.getElementById('toggle_' + userId);
+
+            // Atualiza o texto e a classe do botão com base na resposta
+            if (response === 'ativo') {
+                button.textContent = 'Desativar';
+                button.classList.remove('inativo');
+                button.classList.add('ativo');
+            } else if (response === 'inativo') {
+                button.textContent = 'Ativar';
+                button.classList.remove('ativo');
+                button.classList.add('inativo');
+            } else {
+                alert('Erro ao atualizar o status do usuário.');
+            }
+        }
+    };
+
+    // Envia o ID do usuário para o PHP
+    xhr.send("user_id=" + userId);
 }
-
-// Exibir a mensagem de flash ao carregar a página
-window.onload = function() {
-    showFlashMessage();
-};
-
-
