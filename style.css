@@ -158,7 +158,7 @@ textarea {
 }
 
 .user-itens {
-    background-color: var(--cor-secundaria);
+    background-color: var(--cor-primaria);
     padding-bottom: 5px;
     display: flex;
     justify-content: space-between;
@@ -281,15 +281,15 @@ aside {
 }
 
 .button-normal {
-    background-color: #f1f1f1; /* Cor do botão */
+    background-color: var(--cor-primaria); /* Cor do botão */
     color: var(--preto);
     text-decoration: none;
     border-radius: 5px;
     padding: 2px 2px;
-    font-size: 14px;
+    font-size: 15px;
     cursor: pointer;
     position: absolute;
-    top: 5%;
+    top: 6%;
     right: 7%;
 }
 
@@ -437,119 +437,130 @@ aside {
     margin: 3px;
 }
 
-/* Estilo da tabela*/
+/* Estilo para a tabela */
 .form-wrapper {
-    width: 80%;
-    margin: 60px auto;
-    padding: 8px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-top: 50px;
+    padding-left: 2px;
 }
 
-/* Back button styling */
-.controls {
-    margin-bottom: 20px;
-}
-
-.btn-back {
-    display: inline-block;
-    padding: 10px 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: var(--cor-segundaria);
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-
-/* Title styling */
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
-}
-
-/* Table container styling */
-.table-container {
-    overflow-x: auto; /* Allows horizontal scroll for smaller screens */
-}
-
-/* Table styling */
 .table-users {
-    width: 100%;
+    width: 90%;
+    margin: 60px auto;
     border-collapse: collapse;
-    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .table-users th, .table-users td {
-    padding: 12px;
+    padding: 15px;
     text-align: left;
-    border-bottom: 1px solid #a8a7a7; /* Define apenas a borda inferior para criar as linhas horizontais */
-    border-top: none; /* Remove a borda superior */
-    border-left: none; /* Remove a borda esquerda */
-    border-right: none; /* Remove a borda direita */
+    border-bottom: 1px solid #ddd;
 }
 
 .table-users th {
     background-color: var(--cor-primaria);
-    color: #fff;
+    color: var(--preto);
+}
+
+.table-users tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para mensagens de usuário inativo */
+.inactive-message {
+    font-size: 12px;
+    color: red;
+}
+
+/* Estilo para os botões de ação na tabela */
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+.options .btn {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: var(--preto);
     font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 6px;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd; /* Linha entre os botões */
+    font-family: 'Poppins';
+    font-weight: 500;
 }
 
-/* Estilo para a célula da tabela contendo os botões de ação */
-.table-users .options {
-    text-align: center; /* Centraliza os botões */
+/* Estilização dos botões específicos */
+.options .btn.edit {
+    background-color: #4CAF50; /* Verde para editar */
+    
 }
 
-/* Estilo para cada botão dentro da célula de opções */
-.table-users .options a {
-    display: block; /* Faz com que os botões ocupem toda a largura da célula */
-    width: 110%; /* Define a largura dos botões para 100% */
-    padding: 6px 4px; /* Adiciona espaçamento vertical */
-    margin: 4px 0; /* Adiciona margem vertical entre os botões */
-    text-align: center; /* Centraliza o texto dentro do botão */
-    text-decoration: none; /* Remove o sublinhado dos links */
-    border-radius: 5px; /* Adiciona bordas arredondadas */
-    font-size: 14px; /* Define o tamanho da fonte */
-    color: #fff; /* Define a cor do texto */
+.options .btn.delete {
+    background-color: var(--cor-quatro); /* Vermelho para deletar */
 }
 
-/* Estilos individuais para cada botão */
-.table-users .btn.edit {
-    background-color: #28a745; /* Verde para editar */
+.options .btn.status-toggle.disabled {
+    background-color: var(--cor-primaria); /* Cinza para desabilitado */
 }
 
-
-.table-users .btn.delete {
-    background-color: #dc3545; /* Vermelho para excluir */
+.options .btn.status-toggle.enabled {
+    background-color: #f44336; /* Azul para habilitado */
 }
 
-
-.table-users .btn.status-toggle.enabled {
-    background-color: #ffc107; /* Amarelo para habilitar */
+.options .btn:hover {
+    opacity: 0.8;
 }
 
-.table-users .btn.status-toggle.disabled {
-    background-color: #6c757d; /* Cinza para desabilitar */
+/* Estilo para o botão "Voltar ao dashboar_admin" */
+.btn-back {
+    display: inline-flex;
+    padding: 10px 10px;
+    font-size: 16px;
+    color: var(--preto);
+    background-color: #6c757d;
+    border-radius: 5px;
+    text-decoration: none;
+    position: absolute;
+    top: 1%;
+    left: 5%;
+    background-color: var(--cor-primaria);
+    
 }
+
+.btn-back:hover {
+    background-color: #5a6268;
+}
+
+/* Centralizar o título */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 
 /*estilização da mensagem de cooke */
 .alert {
-    background-color: #dff0d8; /* Cor de fundo verde claro indicando sucesso */
-    color: #3c763d; /* Cor do texto em verde escuro */
-    border: 1px solid #3c763d; /* Borda verde escuro */
-    padding: 15px; /* Espaçamento interno */
-    margin: 20px 0; /* Espaçamento externo para separar a mensagem do conteúdo */
-    border-radius: 5px; /* Borda arredondada */
-    font-size: 16px; /* Tamanho da fonte */
-    text-align: center; /* Centraliza o texto */
-    font-family: 'Arial', sans-serif; /* Define a fonte */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    max-width: 600px; /* Largura máxima para a mensagem */
-    margin-left: auto; /* Centraliza horizontalmente */
-    margin-right: auto; /* Centraliza horizontalmente */
+    background-color: #dff0d8; 
+    color: #3c763d;
+    border: 1px solid #3c763d; 
+    padding: 15px; 
+    margin: 20px 0; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    text-align: center; 
+    font-family: 'Arial', sans-serif; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    max-width: 600px; 
+    margin-left: auto; 
+    margin-right: auto; 
 }
 
 
@@ -633,6 +644,44 @@ h1 {
     .actions {
         justify-content: space-between;
     }
+
+    .form-wrapper {
+        margin-top: 30px;
+        padding-left: 10px;
+    }
+
+    .table-users {
+        width: 100%;
+        margin: 20px 0;
+        font-size: 12px;
+    }
+
+    .table-users th, .table-users td {
+        padding: 10px;
+    }
+
+    .options .btn {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .btn-back {
+        font-size: 14px;
+        padding: 8px 10px;
+        top: 2%;
+        left: 2%;
+    }
+
+    h1 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .alert {
+        font-size: 14px;
+        padding: 10px;
+        margin: 15px 0;
+    }
 }
 
 /* Para dispositivos com largura máxima de 1024px (tablets) */
@@ -668,5 +717,43 @@ h1 {
 
     .form-container {
         width: 90%;
+    }
+
+    .form-wrapper {
+        margin-top: 40px;
+        padding-left: 20px;
+    }
+
+    .table-users {
+        width: 95%;
+        margin: 30px auto;
+        font-size: 14px;
+    }
+
+    .table-users th, .table-users td {
+        padding: 12px;
+    }
+
+    .options .btn {
+        padding: 9px;
+        font-size: 14px;
+    }
+
+    .btn-back {
+        font-size: 15px;
+        padding: 9px 12px;
+        top: 2%;
+        left: 3%;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .alert {
+        font-size: 15px;
+        padding: 12px;
+        margin: 18px 0;
     }
 }

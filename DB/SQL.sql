@@ -82,7 +82,7 @@ Senha: P3dr0S@nt0s1978
 
 Perfil 4
 Nome: Lucas Ferreira
-Endereço: Avenida Paulista, 1000, Bela Vista, São Paulo, SP
+Endereço: Avenida Paulista, Bela Vista, São Paulo
 Data de Nascimento: 18/08/1988
 Telefone: 11998765432
 CPF: 78912345600
@@ -94,5 +94,8 @@ magno - lopes12@as
 luana - Lu_12ar$00
 joão - JU_asr!34@&
 
+/*senha admin*/
+admin@exemplo.com
+senha_admin
 
            

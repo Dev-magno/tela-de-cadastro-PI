@@ -56,6 +56,7 @@ if (isset($_SESSION['user_id']) && is_numeric($_SESSION['user_id'])) {
         <section class="user-itens">
             <div>
                <h1>Bem-vindo(a), <?= htmlspecialchars($user['nome']) ?></h1>
+               <a href="logout.php" class="button-normal">Sair</a>
             </div>
             
             <div class="svg">
@@ -69,8 +70,7 @@ if (isset($_SESSION['user_id']) && is_numeric($_SESSION['user_id'])) {
                 <p><strong>Nome:</strong> <?= htmlspecialchars($user['nome']) ?></p>
                 <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
                 <p><strong>Data De Nascimento:</strong> <?= htmlspecialchars($user['data_nascimento']) ?></p>
-                <p><strong>RG:</strong> <?= htmlspecialchars($user['rg']) ?></p>
-                <a href="logout.php" class="button-normal">Sair</a>
+                <p><strong>RG:</strong> <?= htmlspecialchars($user['rg']) ?></p>  
             </aside>
 
             <section class="user-livros">

@@ -226,7 +226,7 @@ Class User {
                 }
     
                 // Busca informações do usuário
-                $sql = 'SELECT usuario_id, perfil, senha FROM Usuario_tb WHERE email=?';
+                $sql = 'SELECT usuario_id, perfil, senha, status FROM Usuario_tb WHERE email=?';
                 $stmt = $conexao->prepare($sql);
                 $stmt->execute([$email]);
                 $user = $stmt->fetch();
@@ -238,9 +238,14 @@ Class User {
                     header('Location: dashboard_admin.php');
                     exit();
                 }
-    
                 // Verifique se o usuário foi encontrado
                 if ($user) {
+                    //Verifica se o usuário está inativo
+                    if($user['status'] === 'inativo') {
+                        echo "Você está desabilitado. Entre em contato com o suporte.";
+                        return;
+                    }
+
                     // Verifique a senha usando password_verify
                     if (password_verify($senha, $user['senha'])) {
                         $_SESSION['user_id'] = $user['usuario_id'];
