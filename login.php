@@ -13,7 +13,7 @@ require_once "Classe/user.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Login</title>
     <link rel="stylesheet" href="style.css">
-    <script src="JS/dom.js" defer></script>
+    <script src="JS/dom_login.js" defer></script>
 <body>
     <section class="card-detalhes">
         <div class="form-detalhes">
@@ -36,7 +36,7 @@ require_once "Classe/user.php";
                         
 
                     <div class="nav-login">
-                        <a href="#" class="link">Recuperar senha?</a>  
+                        <a href="recuperar_senha.php" class="link">Recuperar senha?</a>  
                     </div> 
                     </div>
                

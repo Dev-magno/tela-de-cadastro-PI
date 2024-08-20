@@ -17,6 +17,12 @@ CREATE TABLE Usuario_tb (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+---adiconar colunas 
+ALTER TABLE Usuario_tb
+ADD COLUMN token_redefinicao VARCHAR(255) NULL,
+ADD COLUMN token_expiracao DATETIME NULL;
+
+
 
 -- Criação da tabela Categoria_tb
 CREATE TABLE Categoria_tb (
@@ -61,16 +67,6 @@ FOREIGN KEY (usuario_solicitante_id) REFERENCES Usuario_tb(usuario_id)
 Pefis fictcio
 
 Perfil 1
-Nome: Maria Oliveira
-Endereço: Avenida Brasil,Centro, Rio de Janeiro
-Data de Nascimento: 22/07/1990
-Telefone: 21998765432
-CPF: 98765432100
-RG: 123456789
-Email: maria.oliveira@example.com
-Senha: Mar!@Oliv1990
-
-Perfil 2
 Nome: Pedro Santos
 Endereço: Rua das Acácias, Bairro Primavera, Belo Horizonte
 Data de Nascimento: 30/11/1978
@@ -80,7 +76,7 @@ RG: 987654321
 Email: pedro.santos@example.com
 Senha: P3dr0S@nt0s1978
 
-Perfil 4
+Perfil 2
 Nome: Lucas Ferreira
 Endereço: Avenida Paulista, Bela Vista, São Paulo
 Data de Nascimento: 18/08/1988
@@ -90,9 +86,6 @@ RG: 78912345600
 Email: lucas.ferreira@example.com
 Senha: Luc@sF3rr88
 
-magno - lopes12@as
-luana - Lu_12ar$00
-joão - JU_asr!34@&
 
 /*senha admin*/
 admin@exemplo.com
